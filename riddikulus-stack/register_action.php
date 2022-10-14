@@ -1,7 +1,7 @@
 <?php
 //checking connection and session start
 include "dbcon.php";
-$conn = OpenCon();
+$connection = OpenCon();
 //declaring variables,arrays and requesting values
 $errors=array();
 $email_error=array();
@@ -61,7 +61,7 @@ $enc_password= sha1($password);
 $user_regdata_sql="INSERT INTO users(first_name,last_name,username,password,email,mobile_number,gender,conditions) VALUES ('$firstname','$lastname','$username' ,'$enc_password','$email','$mobilenbr','$gender','$terms_conditions') LIMIT 1";
 if($connection->query($user_regdata_sql)==true)
 {
-header("location:photouploadpage.php");
+header("location:index.php");
 
 }
 else
