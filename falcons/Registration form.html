@@ -1,0 +1,258 @@
+<html>
+<head>
+<title>Sign up page</title>
+<style>
+    .h
+    {
+        text-align: center;
+        color: rgb(4, 0, 255);
+        font-size: 50;
+        font-family: 'Times New Roman', Times, serif;
+        
+    }
+    .m
+    {
+        text-align: center;
+    }
+    body {
+  background-image: url('register.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  }
+  .c
+  {
+      color: rgb(1, 8, 14);
+      font-family: Arial, Helvetica, sans-serif;
+      width: fit-content;
+      margin-left:auto;margin-right:auto;
+  }
+  .a
+  {
+    min-height: 10vh;
+    background: #eee;
+    display: flex;
+   
+    flex-flow: column;
+    padding-bottom: 4px;
+
+    background:  #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 1);
+    padding: 20px ;
+    width: 600px;
+    align-items: center;
+    justify-content: center ;
+  }
+  .container form
+{
+    background:  #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 15px rgb(71, 64, 64);
+    padding: 20px ;
+    width: 600px;
+}
+.a form sub
+{
+
+
+    width: 100%;
+    background: linear-gradient(45deg , green , lightgreen );
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 20px;
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 2s linear;
+}
+
+.a form .sub
+{
+    letter-spacing: 2px;
+    opacity: _8;
+}
+
+
+</style>
+
+<script language="javascript" type="text/javascript">
+    function validtest()
+    {
+        if(document.Signup.fname.value.length<1)
+        {
+             window.alert("Please enter your First Name");
+        }
+
+        if(document.Signup.mname.value.length<1)
+        {
+             window.alert("Please enter your Middle Name");
+        }
+
+        if(document.Signup.Lname.value.length<1)
+        {
+             window.alert("Please enter your Last Name");
+        }
+
+        if(document.Signup.adnumber.value.length<1)
+        {
+             window.alert("Please enter your Address Number");
+        }
+
+        if(document.Signup.adstreet1.value.length<1)
+        {
+             window.alert("Please enter your Address Street 1");
+        }
+
+        if(document.Signup.adstreet2.value.length<1)
+        {
+             window.alert("Please enter your Address Street 2");
+        }
+
+        if(document.Signup.adcity.value.length<1)
+        {
+             window.alert("Please enter your City");
+        }
+
+        if(document.Signup.pscode.value.length<1)
+        {
+             window.alert("Please enter your Postal Code");
+        }
+
+        if((!document.Signup.gender[0].checked)&&(!document.Signup.gender[1].checked))
+        {
+            window.alert("Select the Gender");
+        }
+        
+        var a=document.Signup.email.value.indexof ("@");
+        var b=document.Signup.email.value.lastindexof (".");
+        if(a<1||b-a<2||b+2>= email.length)
+        {
+            window.alert("Invalid email Address");
+        }
+
+        if(isNaN(document.Signup.telno.value))
+        {
+            window.alert("Enter Telephone Number/Telephone Number should be Numeric");
+        }
+
+        if(document.Signup.password.value.length<6)
+        {
+             window.alert("Password should be 6 charaters");
+        }
+
+        if(document.Signup.Cpassword.value !=document.Signup.password.value)
+        {
+             window.alert("Password not matched");
+        }
+        
+        if(!document.Signup.checkbox.checked)
+        {
+            window.alert("Accept the terms");
+        }
+    }
+    </script>
+
+</head>
+<body>
+    <div class="a">
+    <form  name="Signup" method="post" action="http://localhost/register.php">
+        <table class="c">
+               <tr>
+                   <div><h1 class="h "><b>Registration Form</b></h1>
+                </tr> 
+                <tr height="50">
+                    <td>First Name</td>
+                    <td><input type="text" name="fname" placeholder="First Name" size="20"> </td>
+                </tr>
+
+                <tr height="50"> 
+                   <td>Middle Name</td>
+                   <td><input type="text" name="mname" placeholder="MiddeleName" size="20"> </td>
+                </tr>
+                <tr height="50">
+                    <td>Last Name</td>
+                    <td><input type="text" name="Lname" placeholder="LastName" size="20"> </td>
+                </tr>
+
+                <tr height="50">
+                    <td>Address</td>
+                </tr>
+
+                <tr height="25">
+                    <td> &nbsp;&nbsp;&nbsp; Number</td>
+                    <td><input type="text" name="adnumber" placeholder="address no." size="15"> </td>
+                </tr>
+
+                <tr height="25">
+                    <td>&nbsp;&nbsp;&nbsp; Street line 1</td>
+                    <td><input type="text" name="adstreet1" placeholder="Street line 1" size="15"> </td>
+                </tr>
+
+                <tr height="25">
+                    <td>&nbsp;&nbsp;&nbsp; Street line 2</td>
+                    <td><input type="text" name="adstreet2" placeholder="Street line 2" size="15"> </td>
+                </tr>
+
+                <tr height="25">
+                    <td>&nbsp;&nbsp;&nbsp; City</td>
+                    <td><input type="text" name="adcity" placeholder="city" size="15"> </td>
+                </tr>
+
+                <tr height="50">
+                    <td>Postal Code</td>
+                    <td><input type="text" name="pscode" placeholder="Postal Code" size="10"> </td>
+                </tr>
+
+                <tr height="50">
+                    <br><br>
+                    <td>Date of Birth</td>
+                    <td><input type="date" name="dob" size="30" class="form-control" min="1980-01-01" max="2021-12-31"></td>
+                </tr>
+
+                <tr height="50">
+                    <td>Gender</td>
+                    <td><input type="radio" name="gender" value="M">Male &nbsp;&nbsp;
+                    <input type="radio" name="gender" value="F">Female </td>
+
+                </tr>
+
+                <tr height="50">
+                    <td>E mail</td>
+                    <td><input type="email" name="email" placeholder="name@domain.com"> </td>
+                </tr>
+
+                <tr height="50">
+                    <td>Telephone No.</td>
+                    <td><input type="text" name="telno" placeholder="Tel No." size="10"> </td>
+                </tr>
+
+                <tr height="50">
+                    <td>Password</td>
+                    <td><input type="password" name="password" placeholder="Password" size="6"> </td>
+                </tr>
+
+                <tr height="50">
+                    <td>Comform Password</td>
+                    <td><input type="password" name="Cpassword" placeholder="password" size="6"> </td>
+                </tr>
+
+                <tr height="50">
+                    <td class="m">
+                       <input type="checkbox" name="checkbox" value="yes">
+                       I accept the terms
+                    </td>
+                </tr>
+
+                <tr height="50" class="m">
+                    <td><input type="reset" name="cancel" class="cle" value="Clear"></td> &nbsp;&nbsp;&nbsp;
+                    <td><input type="button" name="submit" class="sub" value="Submit" onclick="validtest()"></td>
+                </tr>
+        
+        </table>
+    </form>
+</div>
+
+</body>
+   
+</html>
