@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.register{
+    display: flex;
+}
+
+.register-img{
+    width: 40%;
+    height: auto;
+}
+
+.register-img img{
+    width: 100%;
+}
+
+.register-form form{
+    position: relative;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%,-50%);
+}
+
+
+.register-form form input{
+    padding: 12px;
+    margin: 10px;
+}
+

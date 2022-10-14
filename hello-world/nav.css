@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Quicksand', sans-serif;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 12px;
+    background-color: black;
+}
+
+nav ul li{
+    display: inline;
+}
+
+nav ul li a{
+    padding: 12px;
+    color: white;
+}
+
+.logo{
+    color: white;
+}
+
+.landing{
+    display: flex;
+}
