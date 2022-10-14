@@ -12,6 +12,8 @@
     Username: <input type="text" name="username"> <br><br>
     Email: <input type="email" name="email" id=""><br><br>
     Password <input type="password" name="password" id="password"><br><br>
+    Confirm Password <input type="password" name="confirm_password" id="confirm_password"><br><br>
+    <input type="submit" value="Register">
 </form>
 </body>
 </html>

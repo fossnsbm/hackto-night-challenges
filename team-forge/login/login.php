@@ -1,17 +1,6 @@
 <?php
-session_start();
+include "../connection.php";
 ?>
-
-<?php
-$host="localhost";
-$username="root";
-$password="";
-$db="bbh_warehouse";
-
-$connection = mysqli_connect($host,$username,$password,$db) or die("Sorry!!! Can't Connect to the Database / Error is ".mysqli_connect_error());
-
-?>
-
 <?php
 $username = $_REQUEST['username'];
 $password = $_REQUEST['password'];
@@ -23,7 +12,7 @@ if (empty($username)) {
     array_push($empty, "empty username");
 }
 if (empty($password)) {
-    array_push($empty, "empty email");
+    array_push($empty, "empty password");
 }
 
 if (count($empty) == 0) {
