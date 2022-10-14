@@ -1,6 +1,3 @@
-<?php 
-session_start();
-include("connection.php");?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -39,79 +36,26 @@ include("connection.php");?>
                       />
                       <h4 class="mt-1 mb-5 pb-1">We are The Lotus Team</h4>
                     </div>
-                    <a href="./AdminLogin/login.php">Admin Login</a>
-                    <h1>Login Here</h1>
 
-                    <?php 
-			
-			if(isset($_COOKIE['success']))
-			{
-				echo "<p>".$_COOKIE['success']."</p>";
-			}
-			if(isset($_COOKIE['error']))
-			{
-				echo "<p>".$_COOKIE['error']."</p>";
-			}
-			
-			function filterData($data)
-			{
-				return addslashes(strip_tags(trim($data)));
-			}
-			if(isset($_POST['login']))
-			{
-				$email = (isset($_POST['email'])) ? filterData($_POST['email']) : "";
-				$pass = (isset($_POST['pwd'])) ? filterData($_POST['pwd']) : "";
-				
-				$result = mysqli_query($con,"select *from users where email='$email'");
-				
-				if(mysqli_num_rows($result)==1)
-				{
-					$row = mysqli_fetch_assoc($result);
-					if(password_verify($pass, $row['password']))
-					{
-						if($row['status'] == "active")
-						{
-							$_SESSION["userid"] = $row['id'];
-							header("Location:home.php");
-						}
-						else
-						{
-							echo "<p>Please activate your account<p>";
-						}
-					}
-					else
-					{
-						echo "<p>Sorry! Wrong credentials entered</p>";
-					}
-				}
-				else
-				{
-					echo "<p>Sorry! Unable to find your account</p>";
-				}
-				
-			}
-			?>
-
-                    <form method="POST" action="" onsubmit="return loginValidate()">
+                    <form>
                       <p>Please login to your account</p>
 
                       <div class="form-outline mb-4">
                         <input
-						onfocus="hideError(this)" onblur="checkError(this)" name="email" id="email" type="email" class="form-control form-control-lg"
                           type="email"
-                          id="email"
+                          id="form2Example11"
                           class="form-control"
-                          placeholder="Email address"
+                          placeholder="Phone number or email address"
                         />
                         <label class="form-label" for="form2Example11"
-                          >Email</label
+                          >Username</label
                         >
                       </div>
 
                       <div class="form-outline mb-4">
                         <input
-						onfocus="hideError(this)" onblur="checkError(this)" type="password" name="pwd" id="pwd" 
-                         
+                          type="password"
+                          id="form2Example22"
                           class="form-control"
                         />
                         <label class="form-label" for="form2Example22"
@@ -120,7 +64,7 @@ include("connection.php");?>
                       </div>
 
                       <div class="text-center pt-1 mb-5 pb-1">
-                        <button type="submit" name="login" value="Login" class="btn btn-outline-danger" type="button">
+                        <button class="btn btn-outline-danger" type="button">
                           Log in
                         </button>
                         <br />
@@ -132,7 +76,7 @@ include("connection.php");?>
                       >
                         <p class="mb-0 me-2">Don't have an account?</p>
                         <a href="registeration.html">
-                          <button type="button" type="submit" name="login" value="Login" class="btn btn-outline-danger">
+                          <button type="button" class="btn btn-outline-danger">
                             Create new
                           </button>
                         </a>
@@ -159,9 +103,5 @@ include("connection.php");?>
         </div>
       </div>
     </section>
-	<script src="js/validations.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<script src="js/mdb.min.js"></script>
-	<script src="js/index.js"></script>	
   </body>
 </html>
