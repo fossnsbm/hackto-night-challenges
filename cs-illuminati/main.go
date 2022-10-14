@@ -29,9 +29,15 @@ func Router(r *gin.Engine) {
 	})
 
 	r.POST("/api/register", AuthMiddleWare, func(ctx *gin.Context) {
-		username := ctx.Request.Form.Get("username")
-		password := ctx.Request.Form.Get("password")
-		email := ctx.Request.Form.Get("email")
+		session := sessions.Default(ctx)
+		username := ctx.Request.FormValue("username")
+		password := ctx.Request.FormValue("password")
+		email := ctx.Request.FormValue("email")
+
+		if !IsvalidEmail(email) {
+			panic("email is not valid!!!!")
+		}
+
 		u := &User{
 			Email:    email,
 			Role:     "customer",
@@ -39,6 +45,11 @@ func Router(r *gin.Engine) {
 		}
 		u.Password = CreatePasswordFromString(password)
 		if err := u.Create(); err != nil {
+			panic(err)
+		}
+		session.Set("useremail", u.Email)
+		session.Set("role", u.Role)
+		if err = session.Save(); err != nil {
 			panic(err)
 		}
 		register.Execute(ctx.Writer, nil)
