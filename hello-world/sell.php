@@ -21,6 +21,7 @@
             </div>
         </div>
         <h3>Add Items</h3>
+        <form action="">
         <div class="item">
             <div class="item-desc">
                 <h3>title</h3>
@@ -31,6 +32,9 @@
                 <img src="assets/Online Groceries-amico.png" alt="">
             </div>
         </div>
+        <input type="submit" value="Cancel">
+        <input type="submit" value="Submit">
+        </form>
     </main>
     <?php
     include 'footer.php';
@@ -38,3 +42,4 @@
 </body>
 
 </html>
+
