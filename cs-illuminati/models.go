@@ -7,6 +7,7 @@ type User struct {
 	Username  string
 	Password  string
 	Feedbacks []Feedback `gorm:"foreignKey:UserID"`
+	Posts     []Post     `gorm:"foreignKey:UserID"`
 }
 
 type Feedback struct {
@@ -18,4 +19,6 @@ type Feedback struct {
 type Post struct {
 	PostID   uint `gorm:"primaryKey"`
 	PostName string
+	Price    string
+	UserID   uint
 }
