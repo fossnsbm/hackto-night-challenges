@@ -12,6 +12,7 @@ import (
 )
 
 var register = template.Must(template.ParseFiles("./static/register.html"))
+var admin = template.Must(template.ParseFiles("./static/admin.html"))
 
 func Router(r *gin.Engine) {
 	//home handler
@@ -55,8 +56,8 @@ func Router(r *gin.Engine) {
 		register.Execute(ctx.Writer, nil)
 	})
 
-	r.GET("/api/admin", AdminMiddleWare, AdminMiddleWare, func(ctx *gin.Context) {
-
+	r.GET("/admin", AdminMiddleWare, AdminMiddleWare, func(ctx *gin.Context) {
+		admin.Execute(ctx.Writer, nil)
 	})
 }
 

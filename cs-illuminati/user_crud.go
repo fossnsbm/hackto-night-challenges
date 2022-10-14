@@ -8,8 +8,13 @@ func (u *User) Create() error {
 	return nil
 }
 
-func ReadUser() {
-
+func ReadUser(userID uint) (*User, error) {
+	db := GetDB()
+	user := &User{}
+	if result := db.Where("UserID = ?", userID).First(&user); result.Error != nil {
+		return nil, result.Error
+	}
+	return user, nil
 }
 
 func UpdateUser() {

@@ -14,3 +14,8 @@ type Feedback struct {
 	UserID       uint
 	FeedbackText string
 }
+
+type Post struct {
+	PostID   uint `gorm:"primaryKey"`
+	PostName string
+}
