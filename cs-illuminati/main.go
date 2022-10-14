@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
@@ -14,10 +15,26 @@ import (
 var register = template.Must(template.ParseFiles("./static/register.html"))
 var admin = template.Must(template.ParseFiles("./static/admin.html"))
 var login = template.Must(template.ParseFiles("./static/login.html"))
+var home = template.Must(template.ParseFiles("./static/home.html"))
+var single_post = template.Must(template.ParseFiles("./static/single_post.html"))
 
 func Router(r *gin.Engine) {
 	//home handler
 	r.GET("/", AuthMiddleWare, func(ctx *gin.Context) {
+		posts, err := ListPost()
+		if err != nil {
+			fmt.Printf("err.Error(): %v\n", err.Error())
+			home.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "unknown error occured",
+				"Posts": nil,
+			})
+			return
+		}
+
+		home.Execute(ctx.Writer, map[string]interface{}{
+			"Error": "",
+			"Posts": posts,
+		})
 
 	})
 	r.POST("/api/login", func(ctx *gin.Context) {
@@ -39,7 +56,10 @@ func Router(r *gin.Engine) {
 		}
 		user, err := ReadUserByEmail(email)
 		if err != nil {
-			panic(err)
+			login.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "Incorrect email and password",
+			})
+			return
 		}
 
 		isPasswordCorrect := CompairHashAndPassword(user.Password, password)
@@ -65,7 +85,9 @@ func Router(r *gin.Engine) {
 		})
 	})
 	r.GET("/register", func(ctx *gin.Context) {
-		register.Execute(ctx.Writer, nil)
+		register.Execute(ctx.Writer, map[string]interface{}{
+			"Error": "Incorrect email and password",
+		})
 	})
 
 	r.POST("/api/register", func(ctx *gin.Context) {
@@ -73,9 +95,18 @@ func Router(r *gin.Engine) {
 		username := ctx.Request.FormValue("username")
 		password := ctx.Request.FormValue("password")
 		email := ctx.Request.FormValue("email")
+		if username == "" || password == "" || email == "" {
+			register.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "some fields are empty",
+			})
+			return
+		}
 
 		if !IsvalidEmail(email) {
-			panic("email is not valid!!!!")
+			register.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "email badly formatted",
+			})
+			return
 		}
 
 		u := &User{
@@ -85,28 +116,46 @@ func Router(r *gin.Engine) {
 		}
 		u.Password = CreatePasswordFromString(password)
 		if err := u.Create(); err != nil {
-			panic(err)
+			register.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "unknown error occured please try again",
+			})
+			return
 		}
 		session.Set("useremail", u.Email)
 		session.Set("role", u.Role)
 		if err = session.Save(); err != nil {
-			panic(err)
+			register.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "unknown error occured please try again",
+			})
+			return
 		}
 		ctx.Redirect(http.StatusSeeOther, "/")
 	})
 
 	r.GET("/admin", AuthMiddleWare, AdminMiddleWare, func(ctx *gin.Context) {
-		admin.Execute(ctx.Writer, nil)
+		admin.Execute(ctx.Writer, map[string]interface{}{
+			"Error": "",
+		})
 	})
 
 	r.POST("/api/admin/createpost", AuthMiddleWare, AdminMiddleWare, func(ctx *gin.Context) {
 		session := sessions.Default(ctx)
 		postname := ctx.Request.FormValue("postname")
 		price := ctx.Request.FormValue("price")
+		catagory := ctx.Request.FormValue("catagory")
+		if postname == "" || price == "" || catagory == "" {
+			admin.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "some fields are empty",
+			})
+			return
+		}
 		email := session.Get("email").(string)
 		user, err := ReadUserByEmail(email)
 		if err != nil {
-			panic(err)
+			admin.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "uknown error occurred",
+			})
+			return
 		}
 		post := &Post{
 			PostName: postname,
@@ -114,10 +163,38 @@ func Router(r *gin.Engine) {
 			UserID:   user.UserID,
 		}
 		if err := post.Create(); err != nil {
+			admin.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "uknown error occurred",
+			})
+			return
+		}
+		admin.Execute(ctx.Writer, map[string]interface{}{
+			"Error": "",
+		})
+	})
+
+	r.GET("/api/post/:id", func(ctx *gin.Context) {
+		post := &Post{}
+		postId := ctx.Param("id")
+		postIDInt, err := strconv.ParseUint(postId, 10, 64)
+		if err != nil {
 			panic(err)
 		}
-		admin.Execute(ctx.Writer, nil)
+		err = post.Read(postIDInt)
+		if err != nil {
+			single_post.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "uknown error occurred",
+			})
+			return
+		}
+
+		single_post.Execute(ctx.Writer, map[string]interface{}{
+			"Error": "",
+			"Post":  post,
+		})
 	})
+
+	r.POST("/api/placeorder", AuthMiddleWare, func(ctx *gin.Context) {})
 }
 
 func main() {
