@@ -1,0 +1,30 @@
+.r1
+{
+    position: relative;
+width: 20px;
+height: 500px;
+background-color: #c0c0e0;
+border-radius: 20px;
+}
+
+.r2
+{
+    position: relative;
+    left: 20px;
+width: 30px;
+height: auto;
+background-color: #c0c0e0;
+border-radius: 20px;
+}
+h3{
+    text-align: center;
+}
+button
+{
+width: 60%;
+}
+.BB1{
+    position: relative;
+    left: 100px;
+    text-align: center; 
+}
