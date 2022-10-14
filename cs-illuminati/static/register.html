@@ -8,7 +8,7 @@
 </head>
 <body>
     <div>
-        <form>
+        <form action="/api/register" method="post"> 
             <label for="username"> Username </label>
             <input type="text" id="username" name="username" /> <br />
             <label for="email"> Email </label>
@@ -18,13 +18,9 @@
             <label for="retype_password"> Retype Password </label>
             <input type="retype_password" id="retype_password" name="retype_password" /> <br />
             <label for="role"> role </label> 
-            <select name="role" id="role">
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-            </select> <br>
             <input type="submit" value="Submit">
             <input type="reset" value="Clear"> <br>
-            <a href="#">Login</a>
+            <a href="/login">Login</a>
         </form>
     </div>
 </body>
