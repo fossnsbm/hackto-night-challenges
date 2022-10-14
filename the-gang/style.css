@@ -86,15 +86,18 @@
   }
   
   nav a:hover {
-    background: red;
+    background: rgb(94, 86, 86);
   }
   
   .logo {
     float: left;
-    color: #fff;
-    font-size: 50px;
-    line-height: 50px;
+    line-height: 30px;
     transition: 0.7s all;
+  }
+
+  img {
+    width: 70px;
+    height: 70px;
   }
   
   .alt-header .logo {
