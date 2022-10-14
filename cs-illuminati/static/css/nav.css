@@ -9,23 +9,23 @@
 
 header{
   height: 90px;
-  background: #546FE7;
+  background: #ffb936;
 }
 
 .inner-width{
-  max-width: 1000px;
+  max-width: 80vw;
   padding: 0 10px;
   margin: auto;
 }
 
 .logo{
   float: left;
-  padding: 27px 0;
+  padding: 10px 0;
   color: #fff;
 }
 
 .logo img{
-  height: 50px;
+  height: 70px;
 }
 
 .navigation-menu{
@@ -37,16 +37,16 @@ header{
 
 .navigation-menu a{
   margin-left: 10px;
-  color: #ddd;
+  color: rgb(0, 0, 0);
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 18px;
   padding: 12px 20px;
   border-radius: 4px;
   transition: .3s linear;
 }
 
 .navigation-menu a:hover{
-  background: #273b91;
+  background: #313131;
   color: #fff;
   transform: scale(1.1);
 }
@@ -61,7 +61,7 @@ header{
 }
 
 a.aj_btn {
-  background: #273b91;
+  background: #000000;
   color: #fff;
   font-weight: 500;
   letter-spacing: 2px;
