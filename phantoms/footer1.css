@@ -1,0 +1,26 @@
+
+.container
+{
+    color: rgb(255, 255, 255);
+}
+#topimg
+{
+    height: 25vh;
+    width: auto;
+    margin-left: 34%;
+}
+#footer
+{
+    text-decoration: none;
+}
+
+#footer:hover
+{
+    color: #B11336 !important;
+}
+.Copyright
+{
+    background-color:#666362 !important;
+    color: #fff;
+    opacity:20;
+}
