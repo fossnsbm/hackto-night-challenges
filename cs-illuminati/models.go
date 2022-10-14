@@ -1,9 +1,16 @@
 package main
 
 type User struct {
-	Email    string
-	Role     string
-	UserID   string
-	Username string
-	Password string
+	Email     string
+	Role      string
+	UserID    uint `gorm:"primaryKey"`
+	Username  string
+	Password  string
+	Feedbacks []Feedback `gorm:"foreignKey:UserID"`
+}
+
+type Feedback struct {
+	FeedbackID   uint `gorm:"primaryKey"`
+	UserID       uint
+	FeedbackText string
 }

@@ -13,28 +13,27 @@ func Router(r *gin.Engine) {
 	r.GET("/", AuthMiddleWare, func(ctx *gin.Context) {
 
 	})
-
 	r.POST("/api/login", AuthMiddleWare, func(ctx *gin.Context) {
+
+	})
+
+	r.GET("/login", func(ctx *gin.Context) {
 
 	})
 
 	r.POST("/api/register", AuthMiddleWare, func(ctx *gin.Context) {
 
 	})
-
 	r.GET("/api/admin", AdminMiddleWare, AdminMiddleWare, func(ctx *gin.Context) {
 
 	})
-
 }
 
 func main() {
+	Migrate()
 	r := gin.Default()
-
 	r.Use(gin.Recovery())
-
 	Router(r)
-
 	svc := &http.Server{
 		Addr:    ":8080",
 		Handler: r,
