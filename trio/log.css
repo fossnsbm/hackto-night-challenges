@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:"poppins",sans-serif;
+}
+body{
+    display: flex;
+    height:auto;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(140deg,#000,rgba(37, 224, 37, 0.2));
+}
+.container{
+    max-width:700px;
+    width: 100%;
+    background: rgba(176, 234, 160, 0.448);
+    padding: auto;
+    border-radius: 5px;
+}
+.container.title{
+    font-size: 25px;
+    font-weight: 500;
+    position:absolute;
+
+}
+.container.title::before{
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background: rgba(231, 224, 127, 0.612);
+}
+
