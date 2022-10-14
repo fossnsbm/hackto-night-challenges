@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li>
-                <a href="Adminpan.html">
+                <a href="Adminpan.php">
                     <i class="fas fa-th-"></i>
                     <div class="title">Dashboard</div>
                 </a>

@@ -1,3 +1,8 @@
+<?php
+include "../connection.php";
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,60 +53,38 @@
         </ul>
     </div>
     <div class="main">
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8">
-            <title>RegistrationForm_v2 by Colorlib</title>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-            <!-- MATERIAL DESIGN ICONIC FONT -->
-            <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
-
-
-        </head>
-
-
-        <div class="wrapper">
-
-            <div class="inner" style="background-image: url('assets/img/Dashboard/white.jpg');">
-                <form action="">
-                    <h3>User Details</h3>
-
-                    <div class="form-wrapper">
-                        <b><label for="">User ID</label></b>
-                        <input type="text" class="form-control" required>
-                    </div>
-
-
-                    <div class="form-wrapper">
-                        <b> <label for="">Name</label></b>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-wrapper">
-                        <b> <label for="">Email</label></b>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div class="form-wrapper">
-                        <b> <label for="">Phone Number</label></b>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    <div>
-
-                        <br>
-                        <br>
-                    </div>
-
-                    <button class="button button1">ADD</button>
-                    <button class="button button1">UPDATE</button>
-                    <button class="button button1">DELETE</button>
-                </form>
-
-            </div>
+        <div class="text-center" style="font-size: 40px !important;">
+            User Details
         </div>
+        <?php
+        $user_list = '';
+        $search = '';
+        $sql = '';
 
 
-        </html>
+        $sql = "SELECT * FROM user WHERE role != 'admin' ORDER BY id ASC";
+
+
+        $users = mysqli_query($connection, $sql);
+        if ($users) {
+            while ($user = mysqli_fetch_assoc($users)) {
+
+                $user_list .= "<tr>";
+
+                $user_list .= "<td>{$user['id']}</td>";
+                $user_list .= "<td>{$user['username']}</td>";
+                $user_list .= "<td>{$user['email']}</td>";
+
+                $user_list .= "<td><button class='conf_delete' onclick='return DeleteUser()==true'><a id='delete' href=\"delete.php?user_id={$user['id']}\">delete</a></button></td>";
+
+                $user_list .= "</tr>";
+            }
+
+        } else {
+            echo "Database  related error " . $connection->error;
+        }
+
+        ?>
 
 
     </div>
