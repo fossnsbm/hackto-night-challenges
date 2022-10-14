@@ -1,13 +1,46 @@
 <!-- Home Page -->
+<?php 
+    include 'dbcon.php';
+    $connection = OpenCon();
+    $sql="SELECT * FROM products";
+    $read=mysqli_query($connection,$sql);
+    $data=mysqli_fetch_assoc($read);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css">
+    <title></title>
+</head>
 <body>
+<nav class="navbar navbar-expand-lg bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse " id="navbarSupportedContent" >
+      <ul class="navbar-nav justify-content-end">
+        <li class="nav-item">
+            <h6 class="h6"><a class="nav-link active text-white" aria-current="page" href="#">Home</a></h6>
+        </li>
+        <li class="nav-item">
+            <h6 class="h6"><a class="nav-link text-white" href="#">Sell</a></h6>
+        </li>
+        <li class="nav-item">
+            <h6 class="h6"><a class="nav-link text-white" href="cart.php">Cart</a></h6>
+        </li>
+        <li class="nav-item">
+            <h6 class="h6"><a class="nav-link text-white" href="login.php">Profile</a></h6>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+        
+   
+
+
     <div id="package-title"><h1 >Sell Items</h1></div>
     <section class="packages">
         
@@ -30,7 +63,8 @@
 						4/5
 					</span>
 				</div>
-				<span class="price-range">From</span> <span class="currency">LKR 20000.00</span>
+				<span class="price-range">From</span> <span class="currency">LKR 20000.00</span><br>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         <div class="product-card">
@@ -53,6 +87,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 30000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         <div class="product-card">
@@ -75,6 +110,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 10000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         <div class="product-card">
@@ -97,6 +133,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 135000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         
@@ -165,6 +202,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 15000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         <div class="product-card">
@@ -187,6 +225,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 30000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         <div class="product-card">
@@ -209,6 +248,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 85000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         <div class="product-card">
@@ -231,6 +271,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 35000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
     </section>
@@ -259,6 +300,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 20000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         <div class="product-card">
@@ -281,6 +323,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 30000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         <div class="product-card">
@@ -303,6 +346,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 10000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         <div class="product-card">
@@ -325,6 +369,7 @@
 					</span>
 				</div>
 				<span class="price-range">From</span> <span class="currency">LKR 135000.00</span>
+                <button type="button" class="btn btn-outline-dark add-button">Add To Cart</button>
             </div>
         </div>
         

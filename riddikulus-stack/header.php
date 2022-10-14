@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,33 +28,3 @@
     </div>
   </div>
 </nav>
->>>>>>> 60dc9d924c77946fbe464fc94a835f2ad70b04bd
-=======
-</head>
-<body>
-	<header>
-		<a href="#"><img src="img/main/logo.png" class="main-logo" alt="logo"></a>
-		<nav>
-			<ul class="nav_link">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Sell</a></li>
-				<li><a href="#">Cart</a></li>
-				<li><a href="#">Profile</a></li>
-				
-				<?php
-					if(isset($_SESSION['logged'])){
-						echo '<li><a href="prof.php" class="login"><button class="btn-animation">Account</button></a></li>';
-					}else{
-						echo '<li><a href="login1.php" class="login"><button class="btn-animation">Login</button></a></li>';
-					}
-				?>
-			</ul>
-		</nav>
-		<div class="burger">
-			<div class="line1"></div>
-			<div class="line2"></div>
-			<div class="line3"></div>
-		</div>
-	</header>
-	<hr>
->>>>>>> 59c8884b3c0c17b1f8f9e0ef8d753acbf3b768b3

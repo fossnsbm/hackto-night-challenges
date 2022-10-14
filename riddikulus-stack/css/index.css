@@ -10,6 +10,46 @@ h1{
 	text-align: center;
 }
 
+/* .intro-div{
+    display: flex;
+    justify-content: space-evenly;
+    height: 500px;
+    margin-left: 4%;
+    margin-right: 4%;
+    
+} 
+.intro-image-div{
+    display: flex;
+    margin : 3%;
+    width: 500px;
+    height: 500px;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+} */
+
+.intro-div{
+    display: flex;
+    justify-content: space-between;
+    margin: 4% 10%;
+}
+
+.intro-heading-div{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.intro-button{
+    margin-bottom: 20px;
+}
+
+.intro-heading{
+    font-size: 8vh;
+}
 
 .section{
     display: flex;
@@ -18,11 +58,6 @@ h1{
     justify-content: center;
     height: 350px;
     width: 100%;
-    
-    background-image: url("../img/Packages/colombo_image.jpg");
-    background-repeat: no-repeat;
-  	/* background-attachment: fixed; */
-  	background-size: cover;
 }
 
 .section h1{
@@ -107,16 +142,7 @@ h1{
         color: yellow;
         margin-top: 3.5rem;
     }
-    .search-btn{
-        width: 30%;
-        border-radius: 80px;
-    }
-    .search-text{
-        font-size: 14px;
-    }
-    .fa-search{
-        font-size: 28px;
-    }
+
     
     
 }
@@ -127,18 +153,7 @@ h1{
       width: 40%;
       height: 74px;  
     }
-    .search-btn{
-        width: 30%;
-        border-radius: 100px;  
-    }
-    .fa-search{
-        font-size: 25px;
-    }
-    .search-text{ 
-        font-size: 16px;
-        height: 40px;
-        padding: 10px;
-    }    
+        
 }
 
 
@@ -156,15 +171,16 @@ h1{
 .banner h3{
 	font-family:'Poppins', sans-serif;
 	text-align: center;
-	font-size:large;
+	font-size:x-large;
+    font-weight: bold;
     
 }
 .banner-icon{
     display: flex;
     align-items: center; 
     flex-direction: column;
-	padding: 4%;  
-	width: 250px;
+	padding: 2%;  
+	width: 350px;
     /* background-color: brown;  */
 }
 
@@ -197,7 +213,7 @@ h1{
 }
 .product-card{
     width: 250px;
-    height: 300px;
+    height: 360px;
     border-radius: 10px;
     margin-top: 1%;
     margin-bottom: 5%;
@@ -225,6 +241,7 @@ h1{
 
 .product-description h3 {
 	font-family: 'Poppins', sans-serif;
+    font-size: medium;
 	margin: 10px;
 } 
 
@@ -259,4 +276,9 @@ h1{
 	font-family:'Poppins', sans-serif;
 	font-weight: bold;
 	color:orange;
+}
+
+.add-button {
+    margin-top: 20px;
+    margin-left: 10px;
 }

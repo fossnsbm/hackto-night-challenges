@@ -1,11 +1,14 @@
 <?php
 //checking connection and session start
-include "dbcon.php";
-session_start();
-$connection = OpenCon();
-$username = $_SESSION['username_logged'];
+include "connection.php";
 ?>
 <?php
+
+//redirecting to login page if user is unknown
+
+?>
+<?php
+$username=$_GET['username'];
 $sql="SELECT * FROM users WHERE username='$username'";
 $user_result=mysqli_query($connection,$sql);
 $row=mysqli_fetch_assoc($user_result);
@@ -22,30 +25,17 @@ $row=mysqli_fetch_assoc($user_result);
     <link rel="stylesheet" type="text/css" href="profi.css">
     <link rel="stylesheet" type="text/css" href="bootstrap1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>My Profile</title>
+    <style>
+
+    </style>
+    <title>User-Profile</title>
 
 </head>
 <body>
 <div class="prof-box">
     <table border="0">
         <tr>
-            <td class="blocks" id="topleft">
-             <a href="../home.php"><button id="icon_btn"><i class="fa fa-arrow-circle-left" id="icon"></i></button></a>
-            </td>
             <td class="blocks"><?php echo "<div id='dp'>"; echo '<img alt="Profile Avatar" src="data:image/jpeg;base64,'.base64_encode($row['avatar']).'" style="height:125px; width:125px; border-radius: 50%; border: 5px solid #555;" />';  echo "</div>";?></td>
-            <td class="blocks" id="topright">
-                <div class="dropdown">
-                    <button id="icon_btn" class="dropdown" ><i class="fa fa-gear" id="icon"></i></button>
-
-                    <div id="options" class="dropdown-options">
-                        <a href="edit_profile.php">Edit</a>
-                    </div>
-
-
-                </div>
-
-
-            </td>
         </tr>
     </table>
     <div class="top-section">
