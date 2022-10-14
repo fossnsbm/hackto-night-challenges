@@ -1,0 +1,342 @@
+*, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  }
+  
+  ::selection {
+    background: #000;
+    color: #aaf;
+  }
+  .alternate ::selection {
+    background: #c00;
+    color: #000;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    height: 2000px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  ul, li, h1, h2, h3, h4, h5, h6, p, a, .logo {
+    font-family: "Lato","Verdana",sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .inner {
+    width: 800px;
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  header {
+    position: fixed;
+    width: 100%;
+    padding-top: 50px;
+    background: #000;
+    transition: 0.7s all;
+    z-index: 100;
+  }
+  
+  header.alt-header {
+    background: #fff;
+  }
+  
+  .alt-header a {
+    color: #000;
+  }
+  
+  body.header-fixed header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  nav {
+    overflow: hidden;
+  }
+  
+  nav ul {
+    float: right;
+  }
+  
+  nav li {
+    display: inline;
+    float: left;
+  }
+  
+  nav a {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    padding: 25px;
+    transition: 0.3s all;
+  }
+  
+  nav a:hover {
+    background: rgb(94, 86, 86);
+  }
+  
+  .logo {
+    float: left;
+    line-height: 30px;
+    transition: 0.7s all;
+  }
+
+  .logo img {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .alt-header .logo {
+    color: #000;
+  }
+  
+  body.header-fixed .logo {
+    font-size: 30px;
+  }
+  
+  .alternate {
+    background: #000;
+    color: #fff;
+  }
+  
+  section .inner {
+    padding-top: 200px;
+  }
+
+  @import url(https://fonts.googleapis.com/css?family=Varela+Round);
+
+html, body { background: #333 url("https://codepen.io/images/classy_fabric.png"); }
+
+.slides {
+    padding: 0;
+    width: 1709px;
+    height: 420px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.slides input { display: none; }
+
+.slide-container { display: block; }
+
+.slide {
+    top: 0;
+    opacity: 0;
+    width: 1709px;
+    height: 420px;
+    display: block;
+    position: absolute;
+
+    transform: scale(0);
+
+    transition: all .7s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav label {
+    width: 200px;
+    height: 100%;
+    display: none;
+    position: absolute;
+
+	  opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+
+    transition: opacity .2s;
+
+    color: #FFF;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 380px;
+    font-family: "Varela Round", sans-serif;
+    background-color: rgba(194, 194, 194, 0.3);
+    text-shadow: 0px 0px 15px rgb(165, 164, 164);
+}
+
+.slide:hover + .nav label { opacity: 0.5; }
+
+.nav label:hover { opacity: 1; }
+
+.nav .next { right: 0; }
+
+input:checked + .slide-container  .slide {
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .nav label { display: block; }
+
+.nav-dots {
+	width: 100%;
+	bottom: 9px;
+	height: 11px;
+	display: block;
+	position: absolute;
+	text-align: center;
+}
+
+.nav-dots .nav-dot {
+	top: -5px;
+	width: 11px;
+	height: 11px;
+	margin: 0 4px;
+	position: relative;
+	border-radius: 100%;
+	display: inline-block;
+	background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-dots .nav-dot:hover {
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+input#img-1:checked ~ .nav-dots label#img-dot-1,
+input#img-2:checked ~ .nav-dots label#img-dot-2,
+input#img-3:checked ~ .nav-dots label#img-dot-3,
+input#img-4:checked ~ .nav-dots label#img-dot-4,
+input#img-5:checked ~ .nav-dots label#img-dot-5,
+input#img-6:checked ~ .nav-dots label#img-dot-6 {
+	background: rgba(0, 0, 0, 0.8);
+}
+.instant-search {
+    position: relative;
+    max-width: 250px;
+  }
+  
+  .instant-search,
+  .instant-search__input {
+    font-family: sans-serif;
+  }
+  
+  .instant-search,
+  .instant-search * {
+    transition: background 0.15s, box-shadow 0.15s;
+  }
+  
+  .instant-search:focus-within {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  .instant-search--loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: #009578;
+    border-radius: 5px;
+    animation: searchIndicator 0.5s infinite ease-in-out;
+  }
+  
+  @keyframes searchIndicator {
+    0% {
+      width: 15%;
+    }
+    50% {
+      width: 100%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  .instant-search,
+  .instant-search__input-container {
+    border-radius: 5px;
+  }
+  
+  .instant-search__input-container {
+    display: inline-flex;
+    box-sizing: border-box;
+    width: 680%;
+    padding: 6px;
+    background: #eeeeee;
+    margin-top: 35px;
+    margin-left: 100px;
+  }
+  
+  .instant-search__input-container:focus-within {
+    background: #ffffff;
+  }
+  
+  .instant-search__input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 0 6px;
+    background: transparent;
+  }
+  
+  .instant-search__results-container {
+    max-height: 250px;
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.1s, opacity 0.1s;
+  }
+  
+  .instant-search__results-container--visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .instant-search__result {
+    display: block;
+    color: #333333;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 0.8em;
+    cursor: pointer;
+  }
+  
+  .instant-search__result:hover {
+    background: #eeeeee;
+  }
+  
+  .instant-search__result:not(:last-of-type) {
+    border-bottom: 1px solid #eeeeee;
+  }
+  
+  .instant-search__title {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+  .instant-search__paragraph {
+    line-height: 1.5;
+    margin: 8px 0;
+  }
