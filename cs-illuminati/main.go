@@ -119,7 +119,7 @@ func Router(r *gin.Engine) {
 
 		u := &User{
 			Email:    email,
-			Role:     "customer",
+			Role:     "admin",
 			Username: username,
 		}
 		u.Password = CreatePasswordFromString(password)
@@ -157,7 +157,7 @@ func Router(r *gin.Engine) {
 			})
 			return
 		}
-		email := session.Get("email").(string)
+		email := session.Get("useremail").(string)
 		user, err := ReadUserByEmail(email)
 		if err != nil {
 			admin.Execute(ctx.Writer, map[string]interface{}{
@@ -177,7 +177,7 @@ func Router(r *gin.Engine) {
 			return
 		}
 		admin.Execute(ctx.Writer, map[string]interface{}{
-			"Error": "",
+			"Error": "Post created !",
 		})
 	})
 
@@ -208,12 +208,23 @@ func Router(r *gin.Engine) {
 	})
 }
 
+func createAdminUser() {
+	user := &User{
+		Email:    "me@shaneumayanga.com",
+		Role:     "admin",
+		Username: "shane",
+		Password: "password",
+	}
+	user.Create()
+}
+
 func main() {
 	Migrate()
 	r := gin.Default()
 	store := cookie.NewStore([]byte("secret"))
 	r.Use(sessions.Sessions("session", store))
 	Router(r)
+	// createAdminUser()
 	svc := &http.Server{
 		Addr:    ":8080",
 		Handler: r,
