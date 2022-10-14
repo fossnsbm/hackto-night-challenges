@@ -1,8 +1,7 @@
 <?php
 //checking connection and session start
-include "connection.php";
-?>
-<?php
+include "dbcon.php";
+$conn = OpenCon();
 //declaring variables,arrays and requesting values
 $errors=array();
 $email_error=array();
