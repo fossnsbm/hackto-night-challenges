@@ -1,0 +1,35 @@
+name: handle_deployment
+
+on:
+  push:
+    branches: [main]
+    on: [ push ]
+
+  workflow_dispatch:
+
+jobs:
+  build_env:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 2
+        
+      - name: test
+        run: |
+          git diff --dirstat=files,0 HEAD~1 | sed 's/^[ 0-9.]\+% //g'
+        id: updated_folders
+    
+      - name: Retrieve Team ID
+        id: team_id
+        uses: notiz-dev/github-action-json-property@release
+        with: 
+             path:test1
+             test2
+             test3
+             test4
+             test5
+             test6
+             test7
