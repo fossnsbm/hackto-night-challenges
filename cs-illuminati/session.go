@@ -1,6 +1,8 @@
 package main
 
-func SaveSession() {
+import "github.com/gin-gonic/gin"
+
+func SaveSession(ctx *gin.Context, user *User) {
 
 }
 

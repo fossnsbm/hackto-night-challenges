@@ -2,11 +2,16 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"log"
 	"net/http"
 
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
 )
+
+var register = template.Must(template.ParseFiles("./static/register.html"))
 
 func Router(r *gin.Engine) {
 	//home handler
@@ -16,14 +21,29 @@ func Router(r *gin.Engine) {
 	r.POST("/api/login", AuthMiddleWare, func(ctx *gin.Context) {
 
 	})
-
 	r.GET("/login", func(ctx *gin.Context) {
 
 	})
+	r.GET("/register", func(ctx *gin.Context) {
+		register.Execute(ctx.Writer, nil)
+	})
 
 	r.POST("/api/register", AuthMiddleWare, func(ctx *gin.Context) {
-
+		username := ctx.Request.Form.Get("username")
+		password := ctx.Request.Form.Get("password")
+		email := ctx.Request.Form.Get("email")
+		u := &User{
+			Email:    email,
+			Role:     "customer",
+			Username: username,
+		}
+		u.Password = CreatePasswordFromString(password)
+		if err := u.Create(); err != nil {
+			panic(err)
+		}
+		register.Execute(ctx.Writer, nil)
 	})
+
 	r.GET("/api/admin", AdminMiddleWare, AdminMiddleWare, func(ctx *gin.Context) {
 
 	})
@@ -32,7 +52,8 @@ func Router(r *gin.Engine) {
 func main() {
 	Migrate()
 	r := gin.Default()
-	r.Use(gin.Recovery())
+	store := cookie.NewStore([]byte("secret"))
+	r.Use(sessions.Sessions("session", store))
 	Router(r)
 	svc := &http.Server{
 		Addr:    ":8080",
