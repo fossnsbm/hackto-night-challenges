@@ -10,25 +10,21 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mt-2 ">
+    <div class="collapse navbar-collapse " id="navbarSupportedContent" >
+      <ul class="navbar-nav justify-content-end">
         <li class="nav-item">
             <h6 class="h6"><a class="nav-link active text-white" aria-current="page" href="#">Home</a></h6>
-          
         </li>
         <li class="nav-item">
             <h6 class="h6"><a class="nav-link text-white" href="#">Sell</a></h6>
-            
         </li>
         <li class="nav-item">
             <h6 class="h6"><a class="nav-link text-white" href="#">Cart</a></h6>
-          
+        </li>
+        <li class="nav-item">
+            <h6 class="h6"><a class="nav-link text-white" href="#">Profile</a></h6>
         </li>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
