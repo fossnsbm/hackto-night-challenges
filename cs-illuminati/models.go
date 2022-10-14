@@ -8,8 +8,13 @@ type User struct {
 	Password  string
 	Feedbacks []Feedback `gorm:"foreignKey:UserID"`
 	Posts     []Post     `gorm:"foreignKey:UserID"`
+	Cart      []Cart     `gorn:"foreignKey:UserID"`
 }
 
+type Cart struct {
+	PostName string
+	UserID   uint
+}
 type Feedback struct {
 	FeedbackID   uint `gorm:"primaryKey"`
 	UserID       uint

@@ -7,6 +7,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <form method="post" action="/api/admin/createpost">
+
+        <input type="text" name="postname" placeholder="postname"/>
+        <br/>
+        <input type="text" name="price" placeholder="price" />
+        <br/>
+        <input type="text" name="catagory" placeholder="catagory"/>
+        <br/>
+        <p>{{.Error}}</p>
+        <input type="submit" value="submit"/>
+
+    </form>
 </body>
 </html>

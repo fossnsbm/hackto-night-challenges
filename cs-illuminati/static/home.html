@@ -206,66 +206,67 @@ display: block;
     }
 
     .grid-container {
-        display: grid;
-        width: 80vw;
-        margin: 0 10vw 0 9vw;
-        grid-template-columns: auto auto auto auto;
-        gap: 10px;
-        padding: 10px;
-      }
-      
-      .grid-container > div {
-        background-color: rgba(255, 255, 255, 0.8);
-        border: 1px solid black;
-        text-align: center;
-        font-size: 30px;
-      }
-      .card {
-        position: relative;
-        width: 320px;
-        height: 480px;
-        background: #191919;
-        border-radius: 20px;
-        overflow: hidden;
-      }
+      display: grid;
+      width: 80vw;
+      margin: 0 10vw 0 9vw;
+      grid-template-columns: auto auto auto auto;
+      gap: 10px;
+      padding: 10px;
+    }
 
-      .card::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        width: 100%;
-        height: 100%;
-        background: #ffce00;
-        transform: skewY(345deg);
-        transition: 0.5s;
-      }
+    .grid-container>div {
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid black;
+      text-align: center;
+      font-size: 30px;
+    }
 
-      .card:hover::before {
-        top: -70%;
-        transform: skewY(390deg);
-      }
+    .card {
+      position: relative;
+      width: 320px;
+      height: 480px;
+      background: #191919;
+      border-radius: 20px;
+      overflow: hidden;
+    }
 
-      .card::after {
-        content: "CORSAIR";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        font-weight: 600;
-        font-size: 6em;
-        color: rgba(0, 0, 0, 0.1);
-      }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      width: 100%;
+      height: 100%;
+      background: #ffce00;
+      transform: skewY(345deg);
+      transition: 0.5s;
+    }
 
-      .card .imgBox {
-        position: relative;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-top: 20px;
-        z-index: 1;
-      }
-      
-      /*
+    .card:hover::before {
+      top: -70%;
+      transform: skewY(390deg);
+    }
+
+    .card::after {
+      content: "CORSAIR";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      font-weight: 600;
+      font-size: 6em;
+      color: rgba(0, 0, 0, 0.1);
+    }
+
+    .card .imgBox {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 20px;
+      z-index: 1;
+    }
+
+    /*
       .card .imgBox img {
           max-width: 100%;
       
@@ -277,55 +278,55 @@ display: block;
       
       }
       */
-      .card .contentBox {
-        position: relative;
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        z-index: 2;
-      }
-      
-      .card .contentBox h3 {
-        font-size: 18px;
-        color: white;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      
-      .card .contentBox .price {
-        font-size: 24px;
-        color: white;
-        font-weight: 700;
-        letter-spacing: 1px;
-      }
-      
-      .card .contentBox .buy {
-        position: relative;
-        top: 100px;
-        opacity: 0;
-        padding: 10px 30px;
-        margin-top: 15px;
-        color: #000000;
-        text-decoration: none;
-        background: #ffce00;
-        border-radius: 30px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: 0.5s;
-      }
-      
-      .card:hover .contentBox .buy {
-        top: 0;
-        opacity: 1;
-      }
-      
-      .mouse {
-        height: 300px;
-        width: auto;
-      }
+    .card .contentBox {
+      position: relative;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 2;
+    }
+
+    .card .contentBox h3 {
+      font-size: 18px;
+      color: white;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card .contentBox .price {
+      font-size: 24px;
+      color: white;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .card .contentBox .buy {
+      position: relative;
+      top: 100px;
+      opacity: 0;
+      padding: 10px 30px;
+      margin-top: 15px;
+      color: #000000;
+      text-decoration: none;
+      background: #ffce00;
+      border-radius: 30px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: 0.5s;
+    }
+
+    .card:hover .contentBox .buy {
+      top: 0;
+      opacity: 1;
+    }
+
+    .mouse {
+      height: 300px;
+      width: auto;
+    }
 
 
 
@@ -385,25 +386,47 @@ display: block;
     </div>
   </header>
 
-  <input style="border-radius: 10px;margin: 0vh 9.7vw; width: 79vw; padding: 6px;margin-top: 4vh;margin-right: 16px;font-size: 17px; filter:drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.25)); " type="text" placeholder="Search..">
-  <div class="categorize" style="width: 80vw; height:10vh; background-color: #ff9e16;margin: 4vh 9.7vw;filter:drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.25));">
+  <input
+    style="border-radius: 10px;margin: 0vh 9.7vw; width: 79vw; padding: 6px;margin-top: 4vh;margin-right: 16px;font-size: 17px; filter:drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.25)); "
+    type="text" placeholder="Search..">
+  <div class="categorize"
+    style="width: 80vw; height:10vh; background-color: #ff9e16;margin: 4vh 9.7vw;filter:drop-shadow(0px 1px 5px rgba(0, 0, 0, 0.25));">
 
   </div>
-  <div class="heading" style="border-radius: 10px; width: 80vw; height:60vh; background-color:#000000;margin: 4vh 9.7vw;"> </div>
+  <div class="heading"
+    style="border-radius: 10px; width: 80vw; height:60vh; background-color:#000000;margin: 4vh 9.7vw;"> </div>
 
   <div class="grid-container">
-    <div class="card">
+      {{range .Posts}}
+      <div class="card">
 
-      <div class="imgBox">
-        <img src="https://www.corsair.com/corsairmedia/sys_master/productcontent/CH-9300011-NA-M65_PRO_RGB_BLK_04.png" alt="mouse corsair" class="mouse">
-      </div>
+        <div class="imgBox">
+          <img src="https://www.corsair.com/corsairmedia/sys_master/productcontent/CH-9300011-NA-M65_PRO_RGB_BLK_04.png"
+            alt="mouse corsair" class="mouse">
+        </div>
     
-      <div class="contentBox">
-        <h3>Mouse Corsair M65</h3>
-        <h2 class="price">61.<small>98</small> €</h2>
-        <a href="#" class="buy">Buy Now</a>
-      </div>
+        <div class="contentBox">
+          <h3>Mouse Corsair M65</h3>
+          <h2 class="price">61.<small>98</small> €</h2>
+          <a href="#" class="buy">Buy Now</a>
+        </div>
     
+      </div>
+
+      {{end}}
+  </div>
+
+  <footer>
+    <div class="footer-content">
+        <h3>cs_illuminati Developer</h3>
+        <p>We are CS_illuminati! <br>Tech stack -> #html #css #js #go</p>
+        <ul class="socials">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+        </ul>
     </div>
     <div>2</div>
     <div>3</div>  
@@ -442,9 +465,9 @@ display: block;
 </footer>
 
 
-  <script src="script.js"></script>
 
-  
+
+  <!-- <script src="script.js"></script> -->
 </body>
 
 
