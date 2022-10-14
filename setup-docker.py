@@ -17,8 +17,7 @@ print("[+] you selected : ",lang)
 os.system("mkdir backend")
 
 if lang==1:
-	cont='''
-	FROM php:7.0-apache
+	cont='''FROM php:7.0-apache
 	COPY ./var/www/php
 	EXPOSE 5000
 	'''
@@ -27,8 +26,7 @@ if lang==1:
 	print("\n[!] process complete")
 
 elif lang==2:
-	cont='''
-FROM python:3-alpine
+	cont='''FROM python:3-alpine
 WORKDIR /backend
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
@@ -40,8 +38,7 @@ CMD [ 'flask', 'run','--host','0.0.0.0','--port','5000']'''
 	print("\n[!] process complete")
 
 elif lang==3:
-	cont='''
-FROM node:16
+	cont='''FROM node:16
 COPY package.json package-lock.json $HOME/node_docker/
 WORKDIR .
 RUN npm install --silent --progress=false
