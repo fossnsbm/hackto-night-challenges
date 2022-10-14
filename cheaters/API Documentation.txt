@@ -1,0 +1,6 @@
+localhost/register?uname={username}&email={email}&password={password} - register all_users
+localhost/login?email={email}&password={password}
+localhost/all_users - get all all_users
+localhost/remove_user?email={email}&password={password} - remove all_users
+localhost/feedback?itemid={itemid}&username={username}&feedback={feedback}
+localhost/list_feedback - list feedbacks
