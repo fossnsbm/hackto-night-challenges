@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <title>Document</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+header{
+  height: 90px;
+  background: #546FE7;
+}
+
+.inner-width{
+  max-width: 1000px;
+  padding: 0 10px;
+  margin: auto;
+}
+
+.logo{
+  float: left;
+  padding: 27px 0;
+  color: #fff;
+}
+
+.logo img{
+  height: 50px;
+}
+
+.navigation-menu{
+  float: right;
+  display: flex;
+  align-items: center;
+  min-height: 90px;
+}
+
+.navigation-menu a{
+  margin-left: 10px;
+  color: #ddd;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 12px 20px;
+  border-radius: 4px;
+  transition: .3s linear;
+}
+
+.navigation-menu a:hover{
+  background: #273b91;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.navigation-menu i{
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.home{
+  color: #fff;
+}
+
+a.aj_btn {
+  background: #273b91;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+a.aj_btn:hover{
+  background: #fff;
+  color: #273b91;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.menu-toggle-btn{
+  float: right;
+  height: 90px;
+  line-height: 90px !important;
+  color: #fff;
+  font-size: 26px;
+  display: none !important;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width:900px) {
+  .menu-toggle-btn{
+    display: block !important;
+  }
+
+  .navigation-menu{
+    position: fixed;
+    width: 100%;
+    max-width: 400px;
+    background: #172b4d;
+    top: 90px;
+    right: 0;
+    display: none;
+    padding: 20px 40px;
+    box-sizing: border-box;
+  }
+
+  .navigation-menu::before{
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #172b4d;
+    position: absolute;
+    top: -10px;
+    right: 10px;
+  }
+
+  .navigation-menu a{
+    display: block;
+    margin: 10px 0;
+  }
+
+  .navigation-menu.active{
+    display: block;
+  }
+}
+    </style>
+</head>
+<body>
+  <img class="wave" src="img/wave.png">
+    <div class="container">
+      <div class="img">
+        <img src="img/kisspng-inventory-warehouse-stock-taking-warehouse-worker-5b48e57b633126.0491185015315039954063.png" style="filter: drop-shadow(7px 7px 7px #666666);
+        -webkit-filter: drop-shadow(40px 40px 50px #0000003d);">
+      </div>
+      <div class="login-content">
+        <form action="/api/login" method="post">
+          <img src="img/Group 1.png" style="width: 1000;">
+				<br><br><br><br>
+        <div class="input-div one">
+          <div class="i">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="div">
+            <label>Email</label>
+            <input type="text" class="input">
+          </div>
+        </div>
+       
+        <div class="input-div pass">
+          <div class="i"> 
+             <i class="fas fa-lock"></i>
+          </div>
+          <div class="div">
+             <label>Password</label>
+             <input type="password" class="input">
+             <p>{{.Error}}</p>
+         </div>
+        </div>
+        <br>
+        <a href="#">Forgot Password?</a>
+        <input type="submit" class="btn" value="Login">
+        <br>
+        <h4 style="display: flex; align-items: center; justify-content: center; color: #7b7b7b;"> If you don't have an account</h4>
+        <input type="submit" class="btn" value="Register">
+
+
+          <!-- <h1>Login Here</h1>
+          <label for="email"> Email </label> <br />
+          <input type="text" id="email" name="email" /> <br />
+          <label for="password"> Password </label> <br />
+          <input type="password" id="password" name="password" /> <br /><br />
+          <p>{{.Error}}</p>
+          <input type="reset" value="Clear" />
+          <input type="submit" value="Submit" /> -->
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
