@@ -21,4 +21,5 @@ type Post struct {
 	PostName string
 	Price    string
 	UserID   uint
+	Catagory string
 }
