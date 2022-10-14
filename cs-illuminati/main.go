@@ -21,10 +21,48 @@ func Router(r *gin.Engine) {
 
 	})
 	r.POST("/api/login", func(ctx *gin.Context) {
+		session := sessions.Default(ctx)
 
+		password := ctx.Request.FormValue("password")
+		email := ctx.Request.FormValue("email")
+		if password == "" || email == "" {
+			login.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "Some fields are empty",
+			})
+			return
+		}
+		if !IsvalidEmail(email) {
+			login.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "email is badly formatted",
+			})
+			return
+		}
+		user, err := ReadUserByEmail(email)
+		if err != nil {
+			panic(err)
+		}
+
+		isPasswordCorrect := CompairHashAndPassword(user.Password, password)
+		if isPasswordCorrect {
+			session.Set("useremail", user.Email)
+			session.Set("role", user.Role)
+			if err := session.Save(); err != nil {
+				fmt.Printf("err.Error(): %v\n", err.Error())
+			}
+			http.Redirect(ctx.Writer, ctx.Request, "/", http.StatusSeeOther)
+			return
+		} else {
+			login.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "Incorrect email and password",
+			})
+			return
+		}
 	})
+
 	r.GET("/login", func(ctx *gin.Context) {
-		login.Execute(ctx.Writer, nil)
+		login.Execute(ctx.Writer, map[string]interface{}{
+			"Error": "",
+		})
 	})
 	r.GET("/register", func(ctx *gin.Context) {
 		register.Execute(ctx.Writer, nil)
@@ -54,7 +92,7 @@ func Router(r *gin.Engine) {
 		if err = session.Save(); err != nil {
 			panic(err)
 		}
-		register.Execute(ctx.Writer, nil)
+		ctx.Redirect(http.StatusSeeOther, "/")
 	})
 
 	r.GET("/admin", AuthMiddleWare, AdminMiddleWare, func(ctx *gin.Context) {
@@ -75,7 +113,10 @@ func Router(r *gin.Engine) {
 			Price:    price,
 			UserID:   user.UserID,
 		}
-
+		if err := post.Create(); err != nil {
+			panic(err)
+		}
+		admin.Execute(ctx.Writer, nil)
 	})
 }
 

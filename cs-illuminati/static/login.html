@@ -8,12 +8,13 @@
 </head>
 <body>
     <div>
-        <form action="">
+        <form action="/api/login" method="post">
           <h1>Login Here</h1>
           <label for="email"> Email </label> <br />
           <input type="text" id="email" name="email" /> <br />
           <label for="password"> Password </label> <br />
           <input type="password" id="password" name="password" /> <br /><br />
+          <p>{{.Error}}</p>
           <input type="reset" value="Clear" />
           <input type="submit" value="Submit" />
         </form>
