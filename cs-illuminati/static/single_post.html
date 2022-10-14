@@ -10,9 +10,10 @@
     <h1>{{.Post.PostName}}</h1>
     <h1>{{.Post.Price}}</h1>
     </br>
-    <form action="">
-        <input />
+    <form action="/api/placeorder" method="post">
         <input type="hidden" name="postid" value="{{.Post.PostID}}"/>
+        <input type="text" placeholder="salary"/>
+        <input type="submit" value="submit"/>
     </form>
 </body>
 </html>

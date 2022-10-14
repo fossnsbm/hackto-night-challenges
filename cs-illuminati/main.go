@@ -94,10 +94,18 @@ func Router(r *gin.Engine) {
 		session := sessions.Default(ctx)
 		username := ctx.Request.FormValue("username")
 		password := ctx.Request.FormValue("password")
+		retype_password := ctx.Request.FormValue("retype_password")
 		email := ctx.Request.FormValue("email")
 		if username == "" || password == "" || email == "" {
 			register.Execute(ctx.Writer, map[string]interface{}{
 				"Error": "some fields are empty",
+			})
+			return
+		}
+
+		if password != retype_password {
+			register.Execute(ctx.Writer, map[string]interface{}{
+				"Error": "Passwords do not match",
 			})
 			return
 		}
@@ -194,7 +202,10 @@ func Router(r *gin.Engine) {
 		})
 	})
 
-	r.POST("/api/placeorder", AuthMiddleWare, func(ctx *gin.Context) {})
+	r.POST("/api/placeorder", AuthMiddleWare, func(ctx *gin.Context) {
+		// salaryNeeded := 1000000
+
+	})
 }
 
 func main() {
