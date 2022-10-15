@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<!-- Login and Signup Pages -->
->>>>>>> dad27e676c7a0d60b6ce14a85e71d1ca2658cd9c
-=======
 <?php
     session_start();
     if(isset($_SESSION["logged"])){
@@ -11,26 +5,17 @@
         exit;
     }
 ?>
->>>>>>> 60dc9d924c77946fbe464fc94a835f2ad70b04bd
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <title>Document</title>
-=======
-    <title>Login / Signup</title>
->>>>>>> dad27e676c7a0d60b6ce14a85e71d1ca2658cd9c
-=======
     <!-- FontAwesome Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- CSS Link -->
-    <link rel="stylesheet" href="hackthon\login1.css">
+    <link rel="stylesheet" href="hackthon\login.css">
     <title>Login and Registration</title>
->>>>>>> 60dc9d924c77946fbe464fc94a835f2ad70b04bd
 </head>
 <body>
     
@@ -143,6 +128,6 @@
         </div>
     </div>
     <?php include 'msgdisply.php' ?>
-    <script src="js/login1.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
