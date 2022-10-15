@@ -1,5 +1,4 @@
-<?php
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
 <body>
 <div class="logbox">
     <h1>REGISTRATION</h1>
-    <form method="post" name="logform" action="regaction.php" onsubmit="return validtext()">
+    <form method="post" name="logform" action="register_action.php" onsubmit="return validtext()">
         <table class="formtable t1" border="0">
             <tr>
                 <td>
@@ -92,7 +91,7 @@
 <body>
 <div class="logbox">
     <h1>REGISTRATION</h1>
-    <form method="post" name="logform" action="regaction.php" onsubmit="return validtext()">
+    <form method="post" name="logform" action="register_action.php" onsubmit="return validtext()">
         <table class="formtable t1" border="0">
             <tr>
                 <td>
