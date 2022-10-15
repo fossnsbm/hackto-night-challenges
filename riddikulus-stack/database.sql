@@ -70,9 +70,18 @@ CREATE TABLE `products` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `description` varchar(500) NOT NULL,
+  `first_name` varchar(25) NOT NULL,
+  `last_name` varchar(25) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `mobile_number` int(12) NOT NULL,
+  `gender` varchar(6) NOT NULL,
+  `conditions` varchar(20) NOT NULL,
+  `avatar` longblob NOT NULL,
+  `headline` varchar(47) NOT NULL,
+  `bio` varchar(500) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
