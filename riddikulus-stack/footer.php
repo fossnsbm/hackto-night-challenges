@@ -2,13 +2,11 @@
 		<div class="footer-left">
 			<h3 class="footer-headings">Links</h3>
 			<a href="#">Home</a>
-			<a href="#">Hotels</a>
-			<a href="#">Vehicles</a>
-			<a href="#">Restaurants</a>
-			<a href="#">Packages</a>
-			<a href="#">Notices</a>
-			<a href="#">Attraction</a>
-			<a href="#">About Us</a>
+			<a href="#">Sell</a>
+			<a href="#">Cart</a>
+			<a href="#">Profile</a>
+			
+			
 			<a href="login1.php"><strong>Sign-in / Sign-up</strong></a>
 		</div>
 		<div class="footer-middle">
@@ -27,10 +25,12 @@
 		</div>
 		<div class="footer-right">
 			<h3 class="footer-headings">About Us</h3>
-			<p>PLAN’n GO, Sri Lanka’s first all in one experience traveling website. From booking transportation to reserving your favorite restaurants and hotels in Sri Lanka. Travelers across Sri Lanka can use PLAN’n GO site to discover where to stay, what to do, where to eat and how to get there. PLAN’n GO also allows for travelers to review their stays and share their traveling experience. PLAN’n GO makes planning easy no matter the trip type.</p>
+			<p></p>
 		</div>
 	</footer>
 	<div class="copyright">
-		<p>Copyright &copy 2022 PLAN'n GO All rights reserved</p>
+		<p>
+
+        </p>
 	</div>
 	<script src="js/main.js"></script>
