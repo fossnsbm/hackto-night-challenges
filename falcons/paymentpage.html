@@ -1,0 +1,112 @@
+ <!DOCTYPE html>
+<head>
+    <Title>
+
+    </Title>
+    <script language="javascript" type="text/javascript" >
+        function validetest()
+        {
+            
+            if(document.Payment.crdnumber.value.length<1)
+            {
+                window.alert("Enter the card number");
+            }
+            if(document.Payment.crdname.value.length<1)
+            {
+                window.alert("Enter the  card holder name ");
+                
+            }
+            if(document.Payment.mnth.selectedindex==o)
+            {
+                window.alert("Please select the month");
+            }
+            if(document.Payment.yar.selectedindex==o)
+            {
+                window.alert("Please select the Year");
+            }
+            if(document.Payment.cvv.value.length<1)
+            {
+                window.alert("Enter the  cvv number ");
+                
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pstyle.css">
+</head>
+<body >
+<div class="container" >
+
+    
+    <form name="Payment" method="post" action="http://localhost/payment.php" >
+        
+        <label for="fname">Accepted Cards</label>
+        <div class="icon-container">
+          <i class="fa fa-cc-visa" style="color:navy;"></i>
+          <i class="fa fa-cc-amex" style="color:blue;"></i>
+          <i class="fa fa-cc-mastercard" style="color:red;"></i>
+        
+        </div>
+        <div class="inputbox">
+            <span>Card Number</span>
+            <input type="text" maxlength="16" class="Cardnumbertext" name="crdnumber" placeholder="Card number">
+        </div>
+        <div class="inputbox">
+            <span>Card Holder Name</span>
+            <input type="text"  class="Holdername" name="crdname" placeholder="name">
+        </div>
+        <div class="flexbox">
+            <div class="inputbox">
+                <span>Expiration mm</span>
+                <select name="mnth" id="" class="monthinput">
+                    <option value="o">month</option>
+                    <option value="01">01</option>
+                    <option value="02">02</option>
+                    <option value="03">03</option>
+                    <option value="04">04</option>
+                    <option value="05">05</option>
+                    <option value="06">06</option>
+                    <option value="07">07</option>
+                    <option value="08">08</option>
+                    <option value="09">09</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+
+                </select>
+            </div>
+            <div class="inputbox">
+                <span>Expiration yy</span>
+                <select name="yar" id="" class="yearinput">
+                    <option value="o">Year</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                    <option value="2027">2027</option>
+                    <option value="2028">2028</option>
+                    <option value="2029">2029</option>
+                    <option value="2030">2030</option>
+                    <option value="2031">2031</option>
+                    <option value="2031">2031</option>
+
+                </select>
+            </div>
+            <div class="inputbox">
+                <span>cvv</span>
+                <input type="text" maxlength="4" name="cvv" class="cvvinmput" placeholder="cvv">
+            </div>
+           
+        </div>
+        <input type="submit" name="Submit" value="proceed order" class="submitbtn" onclick="validetest()" >
+    </form>
+</div>
+
+</body>
+ </html>
