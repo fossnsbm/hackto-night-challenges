@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Amazon</title>
+    <meta name="keywords" content="book store" />
+</head>
+
+<body bgcolor="pink">
+    <header>
+        <nav>
+            <a href="homepage3.html"> Homepage &nbsp; </a> |
+            <a href="Login.html"> Login &nbsp;</a> |
+            <a href="Signup2.html"> SignUp &nbsp;</a> |
+            <a href="bookStore.html"> Book Catalog &nbsp; </a> |
+            <a href="cart.html"> Shopping Cart &nbsp;</a> |
+            <a href="payment.html"> Payment Options &nbsp;</a> |
+            <a href="TrackOrder.html"> Track order &nbsp;</a> |
+        </nav>
+        <center>
+            <strong>
+                <h1>Welcome To Shopping!!</h1>
+            </strong>
+        </center>
+    </header>
+
+    <article>
+        <h2>Track your order</h2>
+        <form>
+            <table>
+                <tr>
+                    <td><br>Track By Order Id:</td>
+                    <td><br><input type="text" name="name" placeholder="Enter Order id" /></td>
+                </tr>
+                <tr>
+
+                    <td><br /><br /><input type="submit" value="Track" />
+                </tr>
+            </table>
+        </form>
+        <br /><br /><br /><br />
+
+        <h3>Rate your shopping experience:</h3>
+
+        <form
+            oninput="M1.value = parseInt(R1.value);M2.value = parseInt(R2.value);M3.value = parseInt(R3.value);M4.value = parseInt(R4.value);">
+            Delivery of product on time :<input type="range" id="R1"> <meter id="M1" min="0" max="100"
+                value="40"></meter> <br /><br />
+            Product quality : <input type="range" id="R2"> <meter id="M2" min="0" max="100" value="60"></meter>
+            <br /><br />
+            How friendly the site is : <input type="range" id="R3"> <meter id="M3" min="0" max="100" value="20"></meter>
+            <br /><br>
+            Were you able to find the product which you were looking for?: <input type="range" id="R4"> <meter id="M4"
+                min="0" max="100" value="30"></meter> <br /><br />
+        </form>
+    </article>
+    <br /><br /><br /><br /><br /><br />
+
+    <footer>
+        <nav> About Us | Privacy Policy | Contact Us | FAQ | Terms & Conditions </nav>
+        Copyright &copy; 2022 | Giri
+    </footer>
+
+    <aside>
+        Like and Connect with us FB Twitter g+
+    </aside>
+
+</body>
+
+</html>
