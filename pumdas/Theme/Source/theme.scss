@@ -1,0 +1,483 @@
+@use 'sass:math';
+
+// Flexbox
+// -------
+
+// Break Points
+
+$SCREEN_SIZE_MINI: 220px + 1px;
+$SCREEN_SIZE_XSMALL: 320px + 1px;
+$SCREEN_SIZE_SMALL: 480px + 1px;
+$SCREEN_SIZE_MEDIUM: 768px + 1px;
+$SCREEN_SIZE_LARGE: 1024px + 1px;
+$SCREEN_SIZE_XLARGE: 1200px + 1px;
+$SCREEN_SIZE_XXLARGE: 1502px + 1px;
+$SCREEN_SIZE_2K: 2048px + 1px;
+$SCREEN_SIZE_QHD: 2560px + 1px;
+$SCREEN_SIZE_UHD: 3840px + 1px;
+$SCREEN_SIZE_4K: 4096px + 1px;
+$SCREEN_SIZE_5K: 5120px + 1px;
+$SCREEN_SIZE_8K: 7680px + 1px;
+
+// Names
+
+$NAME_SCREEN_MINI: mn;
+$NAME_SCREEN_XSMALL: xsm;
+$NAME_SCREEN_SMALL: sm;
+$NAME_SCREEN_MEDIUM: md;
+$NAME_SCREEN_LARGE: lg;
+$NAME_SCREEN_XLARGE: xlg;
+$NAME_SCREEN_XXLARGE: xxlg;
+$NAME_SCREEN_2K: 2k;
+$NAME_SCREEN_QHD: qhd;
+$NAME_SCREEN_UHD: uhd;
+$NAME_SCREEN_4K: 4k;
+$NAME_SCREEN_5K: 5k;
+$NAME_SCREEN_8K: 8k;
+
+$NAME_GRID: grid;
+$NAME_CONTAINER: container;
+$NAME_COLUMN: column;
+$NAME_CONTENT: content;
+$NAME_ITEM: item;
+$NAME_SELF: self;
+$NAME_PLACE: place;
+
+// Variables
+
+$TOTAL_COLUMN: 12;
+$GRID_GUTTER: 8px;
+
+// Body
+// ----
+
+*,
+*::after,
+*::before {
+	margin: 0px;
+	padding: 0px;
+  box-sizing: border-box;
+}
+
+// Grid
+// ----
+
+// Default Grid
+
+.#{$NAME_GRID}-#{$NAME_SCREEN_MINI},
+.#{$NAME_GRID}-#{$NAME_SCREEN_XSMALL},
+.#{$NAME_GRID}-#{$NAME_SCREEN_SMALL},
+.#{$NAME_GRID}-#{$NAME_SCREEN_MEDIUM},
+.#{$NAME_GRID}-#{$NAME_SCREEN_LARGE},
+.#{$NAME_GRID}-#{$NAME_SCREEN_XLARGE},
+.#{$NAME_GRID}-#{$NAME_SCREEN_XXLARGE},
+.#{$NAME_GRID}-#{$NAME_SCREEN_2K},
+.#{$NAME_GRID}-#{$NAME_SCREEN_QHD},
+.#{$NAME_GRID}-#{$NAME_SCREEN_UHD},
+.#{$NAME_GRID}-#{$NAME_SCREEN_4K},
+.#{$NAME_GRID}-#{$NAME_SCREEN_5K},
+.#{$NAME_GRID}-#{$NAME_SCREEN_8K},
+.#{$NAME_GRID} {
+	// margin-left: math.div($GRID_GUTTER, -2);
+  // margin-right: math.div($GRID_GUTTER, -2);
+  margin-left: 0px;
+  margin-right: 0px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+// Responsive Grid
+
+@mixin mixin-default-res-grid-in-media {
+  flex-direction: column;
+}
+
+@media (max-width: $SCREEN_SIZE_MINI) { .#{$NAME_GRID}-#{$NAME_SCREEN_MINI} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_XSMALL) { .#{$NAME_GRID}-#{$NAME_SCREEN_XSMALL} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_SMALL) { .#{$NAME_GRID}-#{$NAME_SCREEN_SMALL} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_MEDIUM) { .#{$NAME_GRID}-#{$NAME_SCREEN_MEDIUM} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_LARGE) { .#{$NAME_GRID}-#{$NAME_SCREEN_LARGE} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_XLARGE) { .#{$NAME_GRID}-#{$NAME_SCREEN_XLARGE} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_XXLARGE) { .#{$NAME_GRID}-#{$NAME_SCREEN_XXLARGE} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_2K) { .#{$NAME_GRID}-#{$NAME_SCREEN_2K} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_QHD) { .#{$NAME_GRID}-#{$NAME_SCREEN_QHD} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_UHD) { .#{$NAME_GRID}-#{$NAME_SCREEN_UHD} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_4K) { .#{$NAME_GRID}-#{$NAME_SCREEN_4K} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_5K) { .#{$NAME_GRID}-#{$NAME_SCREEN_5K} { @include mixin-default-res-grid-in-media(); } }
+@media (max-width: $SCREEN_SIZE_8K) { .#{$NAME_GRID}-#{$NAME_SCREEN_8K} { @include mixin-default-res-grid-in-media(); } }
+
+// Container
+// ---------
+
+// Default Container
+
+.#{$NAME_CONTAINER} {
+  margin-left: $GRID_GUTTER;
+  margin-right: $GRID_GUTTER;
+}
+
+// Percentage Container
+
+@for $i from 1 through 100 {
+  .#{$NAME_CONTAINER}-#{$i}-p {
+    margin: auto;
+    width: $i + #{'%'};
+  }
+}
+
+// Column
+// ------
+
+// Column
+
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_MINI},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_XSMALL},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_SMALL},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_MEDIUM},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_LARGE},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_XLARGE},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_XXLARGE},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_2K},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_QHD},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_UHD},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_4K},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_5K},
+.#{$NAME_COLUMN}-#{$NAME_SCREEN_8K},
+.#{$NAME-COLUMN} {
+	flex: 1 1 percentage(math.div(1, $TOTAL_COLUMN)) !important;
+}
+
+// Responsive Column
+
+@for $i from 1 through 12 {
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_MINI}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_XSMALL}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_SMALL}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_MEDIUM}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_LARGE}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_XLARGE}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_XXLARGE}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_2K}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_QHD}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_UHD}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_4K}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_5K}-#{$i},
+	.#{$NAME_COLUMN}-#{$NAME_SCREEN_8K}-#{$i},
+	.#{$NAME-COLUMN}-#{$i} {
+		flex: 1 1 percentage(math.div($i, $TOTAL_COLUMN)) !important;
+    max-width: percentage(math.div($i, $TOTAL_COLUMN));
+	}
+}
+
+// Respondive Column
+
+@mixin mixin-default-res-column-in-media($_screen_name) {
+  .#{$NAME_COLUMN}-#{$_screen_name} {
+    min-width: 100%;
+  }
+
+  @for $i from 1 through 12 {
+    .#{$NAME_COLUMN}-#{$_screen_name}-#{$i} {
+			flex: 1 1 100% !important;
+      min-width: 100%;
+    }
+  }
+}
+
+@media (max-width: $SCREEN_SIZE_MINI) { @include mixin-default-res-column-in-media($NAME_SCREEN_MINI); }
+@media (max-width: $SCREEN_SIZE_XSMALL) { @include mixin-default-res-column-in-media($NAME_SCREEN_XSMALL); }
+@media (max-width: $SCREEN_SIZE_SMALL) { @include mixin-default-res-column-in-media($NAME_SCREEN_SMALL); }
+@media (max-width: $SCREEN_SIZE_MEDIUM) { @include mixin-default-res-column-in-media($NAME_SCREEN_MEDIUM); }
+@media (max-width: $SCREEN_SIZE_LARGE) { @include mixin-default-res-column-in-media($NAME_SCREEN_LARGE); }
+@media (max-width: $SCREEN_SIZE_XLARGE) { @include mixin-default-res-column-in-media($NAME_SCREEN_XLARGE); }
+@media (max-width: $SCREEN_SIZE_XXLARGE) { @include mixin-default-res-column-in-media($NAME_SCREEN_XXLARGE); }
+@media (max-width: $SCREEN_SIZE_2K) { @include mixin-default-res-column-in-media($NAME_SCREEN_2K); }
+@media (max-width: $SCREEN_SIZE_QHD) { @include mixin-default-res-column-in-media($NAME_SCREEN_QHD); }
+@media (max-width: $SCREEN_SIZE_UHD) { @include mixin-default-res-column-in-media($NAME_SCREEN_UHD); }
+@media (max-width: $SCREEN_SIZE_4K) { @include mixin-default-res-column-in-media($NAME_SCREEN_4K); }
+@media (max-width: $SCREEN_SIZE_5K) { @include mixin-default-res-column-in-media($NAME_SCREEN_5K); }
+@media (max-width: $SCREEN_SIZE_8K) { @include mixin-default-res-column-in-media($NAME_SCREEN_8K); }
+
+// Gap
+// ---
+
+@mixin mixin-set-flex-row-gap($_gap) {
+	.#{$NAME_GRID}-gap-r-#{$_gap} {
+    row-gap: $_gap + #{'px'};
+  }
+
+  .#{$NAME_GRID}-gap-r-#{$_gap}-p {
+    row-gap: $_gap + #{'%'};
+  }
+}
+
+@mixin mixin-set-flex-column-gap($_gap) {
+  .#{$NAME_GRID}-gap-c-#{$_gap} {
+    column-gap: $_gap + #{'px'};
+  }
+
+  .#{$NAME_GRID}-gap-c-#{$_gap}-p {
+    column-gap: $_gap + #{'%'};
+  }
+}
+
+@mixin mixin-set-flex-row-and-column-gap($_gap) {
+  .#{$NAME_GRID}-gap-rc-#{$_gap} {
+    gap: $_gap + #{'px'} $_gap + #{'px'};
+  }
+
+	.#{$NAME_GRID}-gap-rc-#{$_gap} {
+    gap: $_gap + #{'%'} $_gap + #{'%'};
+  }
+}
+
+// Row, Column and Row-Column Gap
+
+@for $i from 1 through 100 {
+  @include mixin-set-flex-row-gap($i);
+  @include mixin-set-flex-column-gap($i);
+  @include mixin-set-flex-row-and-column-gap($i);
+}
+
+// Order
+// -----
+
+@mixin maxin-set-column-order($_name, $_order) {
+  .#{$NAME_COLUMN} {
+    order: $_order;
+  }
+}
+
+@for $i from 1 through 12 {
+  @include maxin-set-column-order($i, $i);
+}
+
+@include maxin-set-column-order(none, none);
+@include maxin-set-column-order(first, -9999);
+@include maxin-set-column-order(last, 9999);
+
+// Offset
+// ------
+
+@mixin mixin-set-column-offset($_name, $_offset) {
+  .#{$NAME_COLUMN}-offset-#{$_name} {
+    margin-left: percentage(math.div($_offset, $TOTAL_COLUMN));
+  }
+}
+
+@for $i from 1 through 12 {
+  @include mixin-set-column-offset($i, $i);
+}
+
+// Position
+// --------
+
+.#{$NAME_GRID}-start {
+  justify-content: flex-start;
+}
+
+.#{$NAME_GRID}-center {
+  justify-content: center;
+}
+
+.#{$NAME_GRID}-end {
+  justify-content: flex-end;
+}
+
+.#{$NAME_GRID}-top {
+	align-items: flex-start;
+}
+
+.#{$NAME_GRID}-middle {
+  align-items: center;
+}
+
+.#{$NAME_GRID}-bottom {
+  align-items: flex-end;
+}
+
+.#{$NAME_GRID}-stretch {
+  align-items: stretch;
+}
+
+.#{$NAME_GRID}-reverse {
+  flex-direction: row-reverse;
+}
+
+.#{$NAME_GRID}-around {
+  justify-content: space-around;
+}
+
+.#{$NAME_GRID}-between {
+  justify-content: space-between;
+}
+
+// Align
+// -----
+
+// Content Align
+
+@mixin mixin-set-flex-align-content($_name, $_content) {
+  .#{$NAME_CONTENT}-#{$_name} {
+    align-content: $_content;
+  }
+}
+
+@include mixin-set-flex-align-content(center, center);
+@include mixin-set-flex-align-content(start, flex-start);
+@include mixin-set-flex-align-content(end, flex-end);
+@include mixin-set-flex-align-content(between, space-between);
+@include mixin-set-flex-align-content(around, space-around);
+@include mixin-set-flex-align-content(evenly, space-evenly);
+
+// Item Align
+
+@mixin mixin-set-flex-align-item($_name, $_item) {
+  .#{$NAME_ITEM}-#{$_name} {
+    align-items: $_item;
+  }
+}
+
+@include mixin-set-flex-align-item(start, flex-start);
+@include mixin-set-flex-align-item(end, flex-end);
+@include mixin-set-flex-align-item(center, center);
+@include mixin-set-flex-align-item(baseline, baseline);
+@include mixin-set-flex-align-item(stretch, stretch);
+
+// Self Align
+
+@mixin mixin-set-flex-align-self($_name, $_self) {
+  .#{$NAME_SELF}-#{$_name} {
+    align-self: $_self;
+  }
+}
+
+@include mixin-set-flex-align-self(auto, auto);
+@include mixin-set-flex-align-self(start, flex-start);
+@include mixin-set-flex-align-self(end, flex-end);
+@include mixin-set-flex-align-self(center, center);
+@include mixin-set-flex-align-self(stretch, stretch);
+
+// Place
+// -----
+
+// Content Place
+
+@mixin mixin-set-flex-place-content($_name, $_content) {
+  .#{$NAME_PLACE}-#{$NAME_CONTENT}-#{$_name} {
+    place-content: $_content;
+  }
+}
+
+@include mixin-set-flex-place-content(center, center);
+@include mixin-set-flex-place-content(start, start);
+@include mixin-set-flex-place-content(end, end);
+@include mixin-set-flex-place-content(between, space-between);
+@include mixin-set-flex-place-content(around, space-around);
+@include mixin-set-flex-place-content(evenly, space-evenly);
+@include mixin-set-flex-place-content(stretch, stretch);
+
+// Item Place
+
+@mixin mixin-set-flex-place-item($_name, $_item) {
+  .#{$NAME_PLACE}-#{$NAME_ITEM}-#{$_name} {
+    place-items: $_item;
+  }
+}
+
+@include mixin-set-flex-place-item(start, start);
+@include mixin-set-flex-place-item(end, end);
+@include mixin-set-flex-place-item(center, center);
+@include mixin-set-flex-place-item(stretch, stretch);
+
+// Self Place
+
+@mixin mixin-set-flex-place-self($_name, $_self) {
+  .#{$NAME_PLACE}-#{$NAME_SELF}-#{$_name} {
+    place-self: $_self;
+  }
+}
+
+@include mixin-set-flex-place-self(auto, auto);
+@include mixin-set-flex-place-self(start, start);
+@include mixin-set-flex-place-self(end, end);
+@include mixin-set-flex-place-self(center, center);
+@include mixin-set-flex-place-self(stretch, stretch);
+
+// Flex
+// ----
+
+// Flex
+
+@mixin mixin-set-flex($_name, $_flex) {
+  .#{$NAME_GRID}-flex-#{$_name} {
+    flex: $_flex;
+  }
+}
+
+@include mixin-set-flex(1, 1 1 0%);
+@include mixin-set-flex(auto, 1 1 auto);
+@include mixin-set-flex(initial, 0 1 auto);
+@include mixin-set-flex(none, none);
+
+// Direction
+
+@mixin mixin-set-flex-direction($_name, $_direction) {
+  .#{$NAME_GRID}-direction-#{$_name} {
+    flex-direction: $_direction;
+  }
+}
+
+@include mixin-set-flex-direction(r, row);
+@include mixin-set-flex-direction(rr, row-reverse);
+@include mixin-set-flex-direction(c, column);
+@include mixin-set-flex-direction(cc, column-reverse);
+
+// Wrap
+
+@mixin mixin-set-flex-wrap($_name, $_wrap) {
+  .#{$NAME_GRID}-wrap-#{$_name} {
+    flex-wrap: $_wrap;
+  }
+}
+
+@include mixin-set-flex-wrap(w, wrap);
+@include mixin-set-flex-wrap(nw, nowrap);
+@include mixin-set-flex-wrap(wr, wrap-reverse);
+
+// Flow
+
+@mixin mixin-set-flex-flow($_name, $_flow) {
+  .#{$NAME_GRID}-flow-#{$_name} {
+    flex-flow: $_flow;
+  }
+}
+
+@include mixin-set-flex-flow(rn, row nowrap);
+@include mixin-set-flex-flow(cr, column-reverse);
+@include mixin-set-flex-flow(cw, column wrap);
+@include mixin-set-flex-flow(rrwr, row-reverse wrap-reverse);
+
+// Grow
+
+@mixin mixin-set-flex-grow($_name, $_grow) {
+  .#{$NAME_GRID}-grow-#{$_name} {
+    flex-grow: $_grow;
+  }
+}
+
+@include mixin-set-flex-grow(0, 0);
+@include mixin-set-flex-grow(1, 1);
+
+// Shrink
+
+@mixin mixin-set-flex-shrink($_name, $_shrink) {
+  .#{$NAME_GRID}-shrink-#{$_name} {
+    flex-shrink: $_shrink;
+  }
+}
+
+@include mixin-set-flex-shrink(0, 0);
+@include mixin-set-flex-shrink(1, 1);
