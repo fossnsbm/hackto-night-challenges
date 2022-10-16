@@ -29,13 +29,7 @@
 				$result = mysqli_query($con, "select email from users where email='$email'");
 				if(mysqli_num_rows($result)==1)
 				{
-
-					
-							header("Location: sell.html"); /* Redirect browser */
-  									exit();
-}
-
-				/*	$row = mysqli_fetch_assoc($result);
+					$row = mysqli_fetch_assoc($result);
 					$token = base64_encode($email);
 					$subject = "Forgot Password Request - NIT";
 					$message = "Hi ".$row['username']."<br><br>Your reset password request has received. Please click the below link to reset your password.<br><br><a href='http://localhost/8pmsept/resetpwd.php?key=".$token."' target='_blank'>Reset Password</a><br><br>Thanks<br>Team";
@@ -58,7 +52,7 @@
 					{
 						setcookie("error","Sorry! Unable to send reset password link",time()+3);
 						header("Location:forgot.php");
-					} */
+					}
 					
 				}
 				else
@@ -66,7 +60,7 @@
 					echo "<p>Sorry! Email does not found</p>";
 				}
 				
-			
+			}
 			?>
 			<form method="POST" action="" onsubmit="return forgotValidate()">
 				<div class="formgroup">
