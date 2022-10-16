@@ -1,0 +1,23 @@
+
+form.example button:hover {
+    background: #eb8f3a;
+  }
+  
+  form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  #btn1
+{
+    background: linear-gradient(#C07530,#C07530, #C07530);
+    box-shadow: 3px 8px 22px rgba(94,28,68,0,15);
+    border-color: #C07530;
+}
+
+#btn2
+{
+    background: linear-gradient(#898989,#898989,#898989);
+    border-color: #898989;
+}
