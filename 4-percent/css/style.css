@@ -1,3 +1,10 @@
+
+.w-450 {
+	width: 450px;
+}
+.vh-100 {
+	min-height: 100vh;
+  }
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 :root{
@@ -159,6 +166,5 @@ html{
 
    html{
       font-size: 50%;
-   }
-
+  }
 }
